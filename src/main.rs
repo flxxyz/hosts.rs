@@ -12,7 +12,7 @@ fn main() {
     let matches = Command::new(NAME)
         .bin_name(BIN_NAME)
         .version(VERSION)
-        .about("一个可以订阅并快速合并生成hosts的工具")
+        .about("一个快速合并订阅，生成hosts的工具")
         .arg_required_else_help(false)
         .subcommand_required(true)
         .subcommand(add::command())
