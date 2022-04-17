@@ -5,22 +5,27 @@
 ## 起步
 
 ```bash
-
+# output: hosts.rs 0.0.1
+cargo run -- -V
 ```
 
-```bash
-# 查看版本
-hosts version
+### 基础指令
 
+> 更多选项查看对应指令的帮助信息 hosts \<subcommend\> -help
+
+```bash
 # 查看帮助信息
 hosts help
 
 # 添加一个订阅的hosts链接
+# alias: a
 hosts add https://raw.githubusercontent.com/flxxyz/hosts.rs/master/hosts
 
 # 查看添加的链接
-hosts ls
+# alias: ls, l
+hosts list
 
 # 拉取合并所有订阅的hosts
+# alias: f
 hosts fetch
 ```
