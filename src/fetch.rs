@@ -45,7 +45,7 @@ pub fn handle(matches: &ArgMatches) -> &ArgMatches {
         url_prefix = String::from(MIRROR_URL);
     }
 
-    let mut responses = vec![format!("{}\n{}\n", START_TAG, REPO_TAG)];
+    let mut responses = vec![format!("{}\n{}\n\n", START_TAG, REPO_TAG)];
     let urls = core::find();
     for url in urls.iter() {
         let res = reqwest::blocking::get(format!("{}{}", url_prefix, url));
@@ -60,7 +60,7 @@ pub fn handle(matches: &ArgMatches) -> &ArgMatches {
                     if is_log {
                         println!("抓取成功🎉 {}", url);
                     }
-                    responses.push(response.text().unwrap());
+                    responses.push(format!("# hosts link: {}\n{}\n\n", url, response.text().unwrap()));
                 } else {
                     if is_log {
                         println!("抓取失败😭 {}", url);

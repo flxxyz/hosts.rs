@@ -64,7 +64,7 @@ pub fn save(key: &str, value: String) {
 pub fn merge(key: &str, values: Vec<String>) -> String {
   for (index, v) in values.iter().enumerate() {
     let res: sled::Result<Option<sled::IVec>>;
-    let nv = (v.to_string() + "\n").into_bytes();
+    let nv = v.to_string().into_bytes();
     if index == 0 {
       res = db().insert(key, nv);
     } else {
